@@ -66,7 +66,7 @@ $(document).ready(function(){
       $(dogTwoMove).append($("#dogTwo"));
       dogTwoMoveCount++
       turn = true;
-      // goToCrate()
+      goToCrate()
       checkWinner()
       return;
       } else if (turn == true) {
@@ -77,7 +77,7 @@ $(document).ready(function(){
         $(dogOneMove).append($("#dogOne"));
         dogOneMoveCount++
         turn = false;
-        // goToCrate()
+        goToCrate()
         checkWinner()
         return;
       }
@@ -97,17 +97,19 @@ $(document).ready(function(){
   }
 
   // sent to Kennel - if player lands on square 15 - sent back to start postion
-  // function goToCrate(){
-  //   if (dogOneCurrentStep == 15) {
-  //     turn = false;
-  //     $(dogOneMove).append($("#dogOne"));
-  //     dogOneCurrentStep = 0; // need to finout next dice roll = 0
-  //   } if (dogTwoCurrentStep == 15) {
-  //     turn = true;
-  //     $(dogTwoMove).append($("#dogTwo"));
-  //     dogTwoCurrentStep = 0; // need to finout next dice roll = 0
-  //   }
-  // }
+  function goToCrate(){
+    if (dogOneCurrentStep == 10) {
+      $box0.append($("#dogOne"));
+      boardMsg(playerOne + " was a bad boy! Go to Crate!!!")
+      dogOneCurrentStep = 0;
+      turn = false;
+    } if (dogTwoCurrentStep == 10) {
+      $box0.append($("#dogTwo"));
+      boardMsg(playerTwo + " was a bad boy! Go to Crate!!!")
+      dogTwoCurrentStep = 0;
+      turn = true;
+    }
+  }
 
 
   // Roll dice to play the game - set player turn and switch between two players
