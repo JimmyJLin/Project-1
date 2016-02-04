@@ -45,6 +45,13 @@ td {
   border: 0px solid white;
 }
 
+.redDice{
+  border: 0px solid white;
+}
+
+.player {
+  border: 0px solid white;
+}
 .dog {
   background-image: url("../img/playerOne.png"), url("../img/playerTwo.png");
   background-size: contain, contain;

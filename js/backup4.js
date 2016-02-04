@@ -38,12 +38,14 @@ $(document).ready(function(){
     dogOneRandomDice = Math.floor((Math.random() * 6) + 1);
     dogOnecurrentStep += dogOneRandomDice;
     return dogOneRandomDice;
+    boardMsg(playerOne + " rolled " + dogOneRandomDice);
   }
 
   function dogTwoRollDice(){
     dogTwoRandomDice = Math.floor((Math.random() * 6) + 1);
     dogTwocurrentStep += dogTwoRandomDice;
     return dogTwoRandomDice;
+    boardMsg(playerTwo + " rolled " + dogTwoRandomDice);
   }
 
   // set player turn
@@ -56,60 +58,51 @@ $(document).ready(function(){
     return currentTurn
   }
 
-  // Dog One Move
-  function dogOneMove (){
-    dogOneRollDice()
-    boardMsg(playerOne + " rolled " + dogOneRandomDice);
-    var currentTurn = setTurn()
-    var dogOneMove = "#box" + dogOnecurrentStep.toString();
-    if (currentPlayer = playerOne){
-      dogOneMoveCount = 0
-      $(dogOneMove).append($("#dogOne"));
-      return;
-    } else {
-      currentPlayer = playerTwo;
-      boardMsg(playerTwo + "'s turn!");
-    }
-    return;
-  }
-  // One Two Move
-  function dogTwoMove (){
-    dogTwoRollDice()
-    boardMsg(playerTwo + " rolled " + dogTwoRandomDice);
-    var currentTurn = setTurn()
-    var dogTwoMove = "#box" + dogTwocurrentStep.toString();
-    if (currentPlayer = playerTwo){
-      dogTwoMoveCount = 0
-      $(dogTwoMove).append($("#dogTwo"));
-      return;
-    } else {
-      currentPlayer = playerOne;
-      boardMsg(playerOne + "'s turn!");
-    }
-    return;
-  }
+
 
   // take the result of the dice apply to the palyer movement
-    $redDice.on("click", function(event){
-      var currentTurn = setTurn()
-      if (turn = true) {
-        dogOneMove()
-      } else {
-        dogTwoMove()
-      }
+  $redDice.on("click", function(event){
+    // $box0.attr("class", "dogTwo");
+    console.log("dice clicked");
+    dogOneRollDice()
+    dogTwoRollDice()
+    var currentTurn = setTurn()
+    var dogOneMove = "#box" + dogOnecurrentStep.toString();
+    var dogTwoMove = "#box" + dogTwocurrentStep.toString();
+    if (currentTurn === playerOne){
+      dogOneMoveCount++
+      $(dogOneMove).append($("#dogOne"));
+      // $(dogOneMove).attr("class",'dogOne');
+      if ($('#box19').class === 'dogOne') {
+        dogOneMoveCount = 0;
+        boardMsg(playerOne + " WIN!");
+        return;
+        } else {
+          turn = playerTwo;
+          boardMsg(playerTwo + "'s turn!");
+          }
+        return;
+    } else if (currentTurn === playerTwo) {
+        dogTwoMoveCount++;
+        $(dogTwoMove).append($("#dogTwo"));
+        // $(dogTwoMove).attr("class", 'dogTwo');
+      } if ($('#box19').class === 'dogTwo'){
+          dogTwoMoveCount = 0;
+          boardMsg(playerTwo + " WIN!");
+          return;
+        } else {
+            turn = playerOne;
+            boardMsg(playerOne + "'s turn!")
+          }
+        return;
 
 
-    });
+  });
 
 
-    // function setTurn(){
-    //   if (turn == true){
-    //     currentTurn = playerOne;
-    //   } else {
-    //     currentTurn = playerTwo;
-    //   }
-    //   return currentTurn
-    // }
+
+
+
 
 
 
@@ -123,8 +116,8 @@ $(document).ready(function(){
 
   $resetGame.on("click", function(event){
     console.log("reset button clicked");
-
-    // currentStep = 0;
+    $box0.append($("#dogOne"));
+    $box0.append($("#dogTwo"));
   })
 
 
