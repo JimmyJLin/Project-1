@@ -56,50 +56,58 @@ $(document).ready(function(){
     return currentTurn
   }
 
-
-
-  // take the result of the dice apply to the palyer movement
-  $redDice.on("click", function(event){
-    $box0.attr("class", "dogTwo");
-    console.log("dice clicked");
+  // Dog One Move
+  function dogOneMove (){
     dogOneRollDice()
-    dogTwoRollDice()
     var currentTurn = setTurn()
     var dogOneMove = "#box" + dogOnecurrentStep.toString();
+    if (currentPlayer = playerOne){
+      dogOneMoveCount = 0
+      $(dogOneMove).attr("class", 'dogOne');
+      return;
+    } else {
+      currentPlayer = playerTwo;
+      boardMsg(playerTwo + "'s turn!" + " Rolled " + dogTwoRandomDice);
+    }
+    return;
+  }
+  // One Two Move
+  function dogTwoMove (){
+    dogTwoRollDice()
+    var currentTurn = setTurn()
     var dogTwoMove = "#box" + dogTwocurrentStep.toString();
-    if (currentTurn === playerOne){
-      dogOneMoveCount++
-      $(dogOneMove).attr("class",'dogOne');
-      if ($('#box19').class === 'dogOne') {
-        dogOneMoveCount = 0;
-        boardMsg(playerOne + " WIN!");
-        return;
-        } else {
-          turn = playerTwo;
-          boardMsg(playerTwo + "'s turn!" + " Rolled " + dogTwoRandomDice);
-          }
-        return;
-    } else if (currentTurn === playerTwo) {
-        dogTwoMoveCount++;
-        $(dogTwoMove).attr("class", 'dogTwo');
-      } if ($('#box19').class === 'dogTwo'){
-          dogTwoMoveCount = 0;
-          boardMsg(playerTwo + " WIN!");
-          return;
-        } else {
-            turn = playerOne;
-            boardMsg(playerOne + "'s turn!" + " Rolled " + dogOneRandomDice)
-          }
-        return;
+    if (currentPlayer = playerTwo){
+      dogTwoMoveCount = 0
+      $(dogTwoMove).attr("class", 'dogTwo');
+      return;
+    } else {
+      currentPlayer = playerOne;
+      boardMsg(playerOne + "'s turn!" + " Rolled " + dogOneRandomDice);
+    }
+    return;
+  }
+
+  // take the result of the dice apply to the palyer movement
+    $redDice.on("click", function(event){
+      var currentTurn = setTurn()
+      if (turn = true) {
+        dogOneMove()
+      } else {
+        dogTwoMove()
+      }
 
 
-  });
+    });
 
 
-
-
-
-
+    // function setTurn(){
+    //   if (turn == true){
+    //     currentTurn = playerOne;
+    //   } else {
+    //     currentTurn = playerTwo;
+    //   }
+    //   return currentTurn
+    // }
 
 
 

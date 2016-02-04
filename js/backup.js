@@ -76,7 +76,7 @@ $(document).ready(function(){
         return;
         } else {
           turn = playerTwo;
-          boardMsg(playerTwo + "'s turn!" + " Rolled " + dogTwoRandomDice);
+          boardMsg(playerTwo + "'s turn!" + " Rolled " + dogOneRandomDice);
           }
         return;
     } else if (currentTurn === playerTwo) {
@@ -88,7 +88,7 @@ $(document).ready(function(){
           return;
         } else {
             turn = playerOne;
-            boardMsg(playerOne + "'s turn!" + " Rolled " + dogOneRandomDice)
+            boardMsg(playerOne + "'s turn!" + " Rolled " + dogTwoRandomDice)
           }
         return;
 
