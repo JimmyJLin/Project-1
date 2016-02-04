@@ -1,16 +1,14 @@
+body {
+  background-image: url("../img/CandV.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
 h1 {
-  text-align: left;
-  margin-left: 40%;
-
+  text-align: center;
 }
 
-.random {
-  background-color: orange;
-}
-
-.free {
-  background-color: red;
-}
 
 #box0 {
   background-color: #3F70FF;
@@ -20,25 +18,35 @@ h1 {
   background-color: grey;
 }
 
-.tableCenter {
-  margin: 0 auto;
-  text-align: center;
+.table.center {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 table {
   margin: 0 auto;
   border-radius: 10px;
   text-align: center;
-  position: absolute;
+  position: relative;
 }
 
 td {
-  border: 1px solid grey;
-  width: 125px;
-  height: 125px;
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
   text-align: center;
   font-size: 1em;
   box-sizing: border-box;
+}
+
+#box5 {
+  background-image: url("../img/redHydrant.png");
+  background-size: contain;
+}
+
+#box15 {
+  background-image: url("../img/redHydrant.png");
+  background-size: contain;
 }
 
 .tdCol {
@@ -77,8 +85,8 @@ td {
   margin: auto;
   width: 250px;
   position: absolute;
-  left: 255px;
-  top: 374px
+  left: 329px;
+  top: 452px
 }
 
 #playerOne {
@@ -96,9 +104,3 @@ td {
   left: 500px;
   top: 511px
 }  // starting position left:20px right: 729px
-
-.button {
-  background-color: white;
-  width: 60px;
-  margin: auto;
-}

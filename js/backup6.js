@@ -52,71 +52,53 @@ $(document).ready(function(){
   }
 
   // set player turn
-  function setTurn(){
-    if (turn == true){
-      currentTurn = playerOne;
-    } else {
-      currentTurn = playerTwo;
-    }
-    return currentTurn
-  }
+  // function setTurn(){
+  //   if (turn == true){
+  //     currentTurn = playerOne;
+  //   } else {
+  //     currentTurn = playerTwo;
+  //   }
+  //   return currentTurn
+  // }
 
+
+  // game logic
+  // switch between players
+  // function not displaying the movement after one cycle.
   function switchPlayer(){
     var dogOneMove = "#box" + dogOnecurrentStep.toString();
     var dogTwoMove = "#box" + dogTwocurrentStep.toString();
+    // var turn = true;
     if (turn == false){
       dogTwoRollDice();
-      diceMsg(playerTwo + " Rolled " + dogTwoRandomDice);
+      diceMsg("Rolled " + dogTwoRandomDice);
       $(dogTwoMove).append($("#dogTwo"));
       dogTwoMoveCount++
       turn = true;
       return;
       } else if (turn == true) {
         dogOneRollDice();
-        diceMsg(playerOne + "Rolled " + dogOneRandomDice);
+        diceMsg("Rolled " + dogOneRandomDice);
         $(dogOneMove).append($("#dogOne"));
         dogOneMoveCount++
         turn = false;
         return;
         }
-  }
-
-
-  // game logic
-  // switch between players
-  // function not displaying the movement after one cycle.
-  // function switchPlayer(){
-  //   // var turn = true;
-  //   if (turn == false){
-  //     dogTwoRollDice();
-  //     // boardMsg(playerTwo + "'s turn!");
-  //     diceMsg("Rolled " + dogTwoRandomDice);
-  //     $(dogTwoMove).append($("#dogTwo"));
-  //     dogTwoMoveCount++
-  //     turn = true;
-  //     return;
-  //     } else if (turn == true) {
-  //       dogOneRollDice();
-  //       // boardMsg(playerOne + "'s turn!");
-  //       diceMsg("Rolled " + dogOneRandomDice);
-  //       $(dogOneMove).append($("#dogOne"));
-  //       dogOneMoveCount++
-  //       turn = false;
-  //       return;
-  //       }
-  // };
+  };
 
   // rolling dice & move
 
 
   // click event to roll dice
+  $redDice.on("click", switchPlayer)
 
   $redDice.on("click", function(event){
     console.log("dice clicked");
     // display which player turn
   // currentPlayer roll dice & display message
-    setTurn();
+    // setTurn();
     switchPlayer();
+    // boardMsg(currentTurn + "'s turn!");
   })
 
   // display dice rolled result
