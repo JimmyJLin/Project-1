@@ -9,13 +9,10 @@ h1 {
   text-align: center;
 }
 
-
-#box0 {
-  background-color: #3F70FF;
-}
-
 #box10 {
-  background-color: grey;
+  background-image: url("../img/jail.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .table.center {
@@ -37,6 +34,11 @@ td {
   text-align: center;
   font-size: 1em;
   box-sizing: border-box;
+}
+
+#box0 {
+  background-image: url("../img/doghouse.png");
+  background-size: contain;
 }
 
 #box5 {
@@ -81,6 +83,20 @@ td {
   background-position: right bottom;
 }
 
+#messageBoard {
+  font-family: "Viva Std", Times, Serif;
+  font-size: 60px;
+  color: black;
+  font-style: normal;
+}
+
+#diceMessage {
+  font-family: "Viva Std", Times, Serif;
+  font-size: 40px;
+  color: black;
+  font-style: normal;
+}
+
 #red_dice {
   margin: auto;
   width: 250px;
@@ -91,7 +107,7 @@ td {
 
 #playerOne {
   margin: auto;
-  width: 38px;
+  width: 58px;
   position: absolute;
   left: 255px;
   top: 500px
@@ -99,7 +115,7 @@ td {
 
 #playerTwo {
   margin: auto;
-  width: 30px;
+  width: 80px;
   position: absolute;
   left: 500px;
   top: 511px
