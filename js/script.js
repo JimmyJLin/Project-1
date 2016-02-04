@@ -38,15 +38,15 @@ $(document).ready(function(){
   // }
 
   function dogOneRollDice(){
-    dogOneRandomDice = Math.floor((Math.random() * 6) + 1);
-    dogOnecurrentStep += dogOneRandomDice;
+    var dogOneRandomDice = Math.floor((Math.random() * 6) + 1);
+    // dogOnecurrentStep += dogOneRandomDice;
     return dogOneRandomDice;
     // return diceMsg("Rolled " + dogOneRandomDice);
   }
 
   function dogTwoRollDice(){
-    dogTwoRandomDice = Math.floor((Math.random() * 6) + 1);
-    dogTwocurrentStep += dogTwoRandomDice;
+    var dogTwoRandomDice = Math.floor((Math.random() * 6) + 1);
+    // dogTwocurrentStep += dogTwoRandomDice;
     return dogTwoRandomDice;
     // return diceMsg("Rolled " + dogTwoRandomDice);
   }
@@ -65,23 +65,30 @@ $(document).ready(function(){
     var dogOneMove = "#box" + dogOnecurrentStep.toString();
     var dogTwoMove = "#box" + dogTwocurrentStep.toString();
     if (turn == false){
-      dogTwoRollDice();
-      diceMsg(playerTwo + " Rolled " + dogTwoRandomDice);
+      var diceRoll = dogTwoRollDice();
+      diceMsg(playerTwo + " Rolled " + diceRoll);
+      dogTwocurrentStep += diceRoll
+      dogTwoMove = "#box" + dogTwocurrentStep.toString();
       $(dogTwoMove).append($("#dogTwo"));
       dogTwoMoveCount++
       turn = true;
       return;
       } else if (turn == true) {
-        dogOneRollDice();
-        diceMsg(playerOne + "Rolled " + dogOneRandomDice);
+        var diceRoll = dogOneRollDice();
+        diceMsg(playerOne + "Rolled " + diceRoll);
+        dogOnecurrentStep += diceRoll
+        dogOneMove = "#box" + dogOnecurrentStep.toString();
         $(dogOneMove).append($("#dogOne"));
         dogOneMoveCount++
         turn = false;
         return;
-        }
+      }
   }
 
+  function applyMove() {
 
+
+  }
   // game logic
   // switch between players
   // function not displaying the movement after one cycle.
