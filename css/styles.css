@@ -83,6 +83,14 @@ td {
   background-position: right bottom;
 }
 
+.qMark {
+  background-image: url("../img/qMark.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
 #messageBoard {
   font-family: "Viva Std", Times, Serif;
   font-size: 40px;

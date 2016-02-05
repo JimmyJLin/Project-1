@@ -65,7 +65,6 @@ $(document).ready(function(){
       dogTwoMoveCount++
       turn = true;
       boardMsg("")
-      dogTwoRandomEventMove()
       goToCrate()
       checkWinner()
       return;
@@ -78,7 +77,6 @@ $(document).ready(function(){
         dogOneMoveCount++
         turn = false;
         boardMsg("")
-        dogOneRandomEventMove()
         goToCrate()
         checkWinner()
         return;
@@ -113,81 +111,7 @@ $(document).ready(function(){
     }
   }
 
-  // Dog One Random event - 1/4 move+2; 1/4 move-2; 1/4 +1; 1/4 move -1;
-  function dogOneRandomEvent(){
-    var random = Math.random();
-    if (random < 0.25) {
-      console.log("Move + 2")
-      dogOneCurrentStep += 2;
-      dogOneMove = "#box" + dogOneCurrentStep.toString();
-      $(dogOneMove).append($("#dogOne"));
-      boardMsg(playerOne + " move forward two spaces")
-    } else if (random < 0.50) {
-      console.log("Move - 2")
-      dogOneCurrentStep -= 2;
-      dogOneMove = "#box" - dogOneCurrentStep.toString();
-      $(dogOneMove).append($("#dogOne"));
-      boardMsg(playerOne + " move backward two spaces")
-    } else if (random < 0.75){
-      console.log("Move +1")
-      dogOneCurrentStep += 1;
-      dogOneMove = "#box" + dogOneCurrentStep.toString();
-      $(dogOneMove).append($("#dogOne"));
-      boardMsg(playerOne + " move forward one space")
-    } else {
-      console.log("Move -1")
-      dogOneCurrentStep -= 1;
-      dogOneMove = "#box" - dogOneCurrentStep.toString();
-      $(dogOneMove).append($("#dogOne"));
-      boardMsg(playerOne + " move backward one space")
-    }
-    return;
-  }
-
-  // Take in DogOneRandomEvent & move DogOne
-  function dogOneRandomEventMove(){
-    if (dogOneCurrentStep == 3 || dogOneCurrentStep == 6 || dogOneCurrentStep == 9 || dogOneCurrentStep == 12 || dogOneCurrentStep == 16 || dogOneCurrentStep == 19){
-      dogOneRandomEvent()
-      return;
-    }
-  }
-
-  // Dog Two Random event - 1/4 move+2; 1/4 move-2; 1/4 +1; 1/4 move -1;
-  function dogTwoRandomEvent(){
-    var random = Math.random();
-    if (random < 0.25) {
-      console.log("Move + 2")
-      dogTwoCurrentStep += 2;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
-      boardMsg(playerTwo + " Move backward two spaces")
-      $(dogTwoMove).append($("#dogTwo"));
-    } else if (random < 0.50) {
-      console.log("Move - 2")
-      dogTwoCurrentStep -= 2;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
-      $(dogTwoMove).append($("#dogTwo"));
-      boardMsg(playerTwo + " Move backward two spaces")
-    } else if (random < 0.75){
-      console.log("Move +1")
-      dogTwoCurrentStep += 1;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
-      $(dogTwoMove).append($("#dogTwo"));
-      boardMsg(playerTwo + " Move forward one space")
-    } else {
-      console.log("Move -1")
-      dogTwoCurrentStep -= 1;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
-      $(dogTwoMove).append($("#dogTwo"));
-      boardMsg(playerTwo + " Move backward one space")
-    }
-  }
-
-  function dogTwoRandomEventMove(){
-    if (dogTwoCurrentStep == 3 || dogTwoCurrentStep == 6 || dogTwoCurrentStep == 9 || dogTwoCurrentStep == 12 || dogTwoCurrentStep == 16 || dogTwoCurrentStep == 19){
-      dogTwoRandomEvent()
-      return;
-    }
-  }
+  // Random event - 1/4 move+2; 1/4 move-2; 1/4 +1; 1/4 move -1;
 
   // Roll dice to play the game - set player turn and switch between two players
   $redDice.on("click", function(event){
