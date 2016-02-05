@@ -1,0 +1,149 @@
+body {
+  background-image: url("../img/CandV.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.button-primary {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB;
+  height: 38px;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px soild #bbb;
+}
+
+h1 {
+  text-align: center;
+}
+
+#box10 {
+  background-image: url("../img/jail.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table {
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+td {
+  border: 5px solid white;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+#box0 {
+  background-image: url("../img/doghouse.png");
+  background-size: contain;
+}
+
+#box5 {
+  background-image: url("../img/redHydrant.png");
+  background-size: contain;
+}
+
+#box15 {
+  background-image: url("../img/redHydrant.png");
+  background-size: contain;
+}
+
+
+.tdCol {
+  border: 0px solid white;
+}
+
+.redDice{
+  border: 0px solid white;
+}
+
+.player {
+  border: 0px solid white;
+}
+.dog {
+  background-image: url("../img/playerOne.png"), url("../img/playerTwo.png");
+  background-size: contain, contain;
+  background-repeat: no-repeat;
+  background-position: left bottom, right bottom;
+}
+
+.dogOne {
+  background-image: url("../img/playerOne.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+.dogTwo {
+  background-image: url("../img/playerTwo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.qMark {
+  background-image: url("../img/qMark.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+#messageBoard {
+  font-family: "Viva Std", Times, Serif;
+  font-size: 40px;
+  color: black;
+  font-style: normal;
+}
+
+#diceMessage {
+  font-family: "Viva Std", Times, Serif;
+  font-size: 40px;
+  color: black;
+  font-style: normal;
+}
+
+#red_dice {
+  margin: auto;
+  width: 250px;
+  position: absolute;
+  left: 329px;
+  top: 452px
+}
+
+#playerOne {
+  margin: auto;
+  width: 58px;
+  position: absolute;
+  left: 255px;
+  top: 500px
+} // starting position left:87px right: 736px
+
+#playerTwo {
+  margin: auto;
+  width: 80px;
+  position: absolute;
+  left: 500px;
+  top: 511px
+}  // starting position left:20px right: 729px
