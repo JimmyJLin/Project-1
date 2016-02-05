@@ -5,6 +5,7 @@ body {
 
 }
 
+
 .button-primary {
   color: #FFF;
   background-color: #1EAEDB;
@@ -24,7 +25,17 @@ body {
 }
 
 h1 {
+  color: #B354FF;
+  font-family: Monosten, monospace;
   text-align: center;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  text-shadow: 0.1em 0.1em 0.2em black;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 #box10 {
@@ -39,6 +50,7 @@ h1 {
 }
 
 table {
+  background-color: rgba(255,255,255,0.4);
   margin: 0 auto;
   border-radius: 10px;
   text-align: center;
@@ -46,9 +58,9 @@ table {
 }
 
 td {
-  border: 5px solid white;
-  width: 150px;
-  height: 150px;
+  border: 7px solid white;
+  width: 147px;
+  height: 147px;
   text-align: center;
   font-size: 1em;
   box-sizing: border-box;
@@ -112,7 +124,7 @@ td {
 
 #messageBoard {
   font-family: "Viva Std", Times, Serif;
-  font-size: 40px;
+  font-size: 36px;
   color: black;
   font-style: normal;
 }
@@ -129,7 +141,7 @@ td {
   width: 250px;
   position: absolute;
   left: 329px;
-  top: 452px
+  top: 435px
 }
 
 #playerOne {

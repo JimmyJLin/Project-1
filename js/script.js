@@ -89,14 +89,10 @@ $(document).ready(function(){
   function checkWinner(){
     if (dogOneCurrentStep > 19){
       $box0.append($("#dogOne"));
-      var $winningMessageOne = "Congratulation!! " + playerOne + " WINS!!!"
-      boardMsg($winningMessage)
-      // alert(playerOne + " WINS!!")
-    } if (dogTwoCurrentStep > 19) {
+      boardMsg("Congratulation!! " + playerOne + " WINS!!!")
+    } else if (dogTwoCurrentStep > 19) {
       $box0.append($("#dogTwo"));
-      var $winningMessageTwo = "Congratulation!! " + playerOne + " WINS!!!"
-      boardMsg($winningMessageTwo)
-      // alert(playerTwo + " WINS!!")
+      boardMsg("Congratulation!! " + playerTwo + " WINS!!!")
     }
   }
 
@@ -121,27 +117,27 @@ $(document).ready(function(){
     if (random < 0.25) {
       console.log("Move + 2")
       dogOneCurrentStep += 2;
-      dogOneMove = "#box" + dogOneCurrentStep.toString();
+      dogOneMove = "#box" + dogOneCurrentStep;
       $(dogOneMove).append($("#dogOne").slideUp(500).delay(1000).fadeIn(500));
-      boardMsg(playerOne + " move forward two spaces")
+      boardMsg(playerOne + " move forward two spaces") // this works moving forward by 2
     } else if (random < 0.50) {
       console.log("Move - 2")
       dogOneCurrentStep -= 2;
-      dogOneMove = "#box" - dogOneCurrentStep.toString();
+      dogOneMove = "#box" + dogOneCurrentStep;
       $(dogOneMove).append($("#dogOne").slideUp(500).delay(1000).fadeIn(500));
-      boardMsg(playerOne + " move backward two spaces")
+      boardMsg(playerOne + " move backward two spaces") // displayed message but not moving the icon, but is tracking the count correctly
     } else if (random < 0.75){
       console.log("Move +1")
       dogOneCurrentStep += 1;
-      dogOneMove = "#box" + dogOneCurrentStep.toString();
+      dogOneMove = "#box" + dogOneCurrentStep;
       $(dogOneMove).append($("#dogOne").slideUp(500).delay(1000).fadeIn(500));
-      boardMsg(playerOne + " move forward one space")
+      boardMsg(playerOne + " move forward one space") // works moving forward by 1
     } else if (random < 1){
       console.log("Move -1")
       dogOneCurrentStep -= 1;
-      dogOneMove = "#box" - dogOneCurrentStep.toString();
+      dogOneMove = "#box" + dogOneCurrentStep;
       $(dogOneMove).append($("#dogOne").slideUp(500).delay(1000).fadeIn(500));
-      boardMsg(playerOne + " move backward one space")
+      boardMsg(playerOne + " move backward one space") // display message but not moving the icon - seem like the bakend works.. just not moving the pic
     }
     checkWinner()
     return;
@@ -161,27 +157,27 @@ $(document).ready(function(){
     if (random < 0.25) {
       console.log("Move + 2")
       dogTwoCurrentStep += 2;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
+      dogTwoMove = "#box" + dogTwoCurrentStep;
       boardMsg(playerTwo + " Move backward two spaces")
       $(dogTwoMove).append($("#dogTwo").slideUp(500).delay(1000).fadeIn(500));
     } else if (random < 0.50) {
       console.log("Move - 2")
       dogTwoCurrentStep -= 2;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
+      dogTwoMove = "#box" + dogTwoCurrentStep;
       $(dogTwoMove).append($("#dogTwo").slideUp(500).delay(1000).fadeIn(500));
-      boardMsg(playerTwo + " Move backward two spaces")
+      boardMsg(playerTwo + " Move backward two spaces") // working move the icon backward by 2, rather just one - count off by the # of move
     } else if (random < 0.75){
       console.log("Move +1")
       dogTwoCurrentStep += 1;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
+      dogTwoMove = "#box" + dogTwoCurrentStep;
       $(dogTwoMove).append($("#dogTwo").slideUp(500).delay(1000).fadeIn(500));
-      boardMsg(playerTwo + " Move forward one space")
+      boardMsg(playerTwo + " Move forward one space") // working move forward by 1
     } else if (random < 1){
       console.log("Move -1")
       dogTwoCurrentStep -= 1;
-      dogTwoMove = "#box" + dogTwoCurrentStep.toString();
+      dogTwoMove = "#box" + dogTwoCurrentStep;
       $(dogTwoMove).append($("#dogTwo").slideUp(500).delay(1000).fadeIn(500));
-      boardMsg(playerTwo + " Move backward one space")
+      boardMsg(playerTwo + " Move backward one space") // working move backward by 1
     }
       checkWinner()
       return;
@@ -220,6 +216,8 @@ $(document).ready(function(){
     dogTwoCurrentStep = 0;
     dogOneMoveCount = 0;
     dogTwoMoveCount = 0;
+    boardMsg("");
+    diceMsg("");
   })
 
 
