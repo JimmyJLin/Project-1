@@ -89,13 +89,11 @@ $(document).ready(function(){
   function checkWinner(){
     if (dogOneCurrentStep > 19){
       $box0.append($("#dogOne"));
-      var $winningMessageOne = "Congratulation!! " + playerOne + " WINS!!!"
-      boardMsg($winningMessage)
+      boardMsg(playerOne + " WINS!!!")
       // alert(playerOne + " WINS!!")
     } if (dogTwoCurrentStep > 19) {
       $box0.append($("#dogTwo"));
-      var $winningMessageTwo = "Congratulation!! " + playerOne + " WINS!!!"
-      boardMsg($winningMessageTwo)
+      boardMsg(playerTwo + " WINS!!!")
       // alert(playerTwo + " WINS!!")
     }
   }
@@ -136,14 +134,13 @@ $(document).ready(function(){
       dogOneMove = "#box" + dogOneCurrentStep.toString();
       $(dogOneMove).append($("#dogOne").slideUp(500).delay(1000).fadeIn(500));
       boardMsg(playerOne + " move forward one space")
-    } else if (random < 1){
+    } else {
       console.log("Move -1")
       dogOneCurrentStep -= 1;
       dogOneMove = "#box" - dogOneCurrentStep.toString();
       $(dogOneMove).append($("#dogOne").slideUp(500).delay(1000).fadeIn(500));
       boardMsg(playerOne + " move backward one space")
     }
-    checkWinner()
     return;
   }
 
@@ -176,15 +173,13 @@ $(document).ready(function(){
       dogTwoMove = "#box" + dogTwoCurrentStep.toString();
       $(dogTwoMove).append($("#dogTwo").slideUp(500).delay(1000).fadeIn(500));
       boardMsg(playerTwo + " Move forward one space")
-    } else if (random < 1){
+    } else {
       console.log("Move -1")
       dogTwoCurrentStep -= 1;
       dogTwoMove = "#box" + dogTwoCurrentStep.toString();
       $(dogTwoMove).append($("#dogTwo").slideUp(500).delay(1000).fadeIn(500));
       boardMsg(playerTwo + " Move backward one space")
     }
-      checkWinner()
-      return;
   }
 
   function dogTwoRandomEventMove(){

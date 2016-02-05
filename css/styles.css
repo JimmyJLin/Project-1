@@ -5,6 +5,24 @@ body {
 
 }
 
+.button-primary {
+  color: #FFF;
+  background-color: #1EAEDB;
+  border-color: #1EAEDB;
+  height: 38px;
+  padding: 0 30px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px soild #bbb;
+}
+
 h1 {
   text-align: center;
 }
@@ -50,6 +68,7 @@ td {
   background-image: url("../img/redHydrant.png");
   background-size: contain;
 }
+
 
 .tdCol {
   border: 0px solid white;
