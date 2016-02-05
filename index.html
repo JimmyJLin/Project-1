@@ -8,59 +8,60 @@
     <h1> Puppy Race </h1>
   </head>
   <body>
-    <div class="TableWrapper">
-      <table>
-        <tr>
-          <th>5</th>
-          <td class="free" id="box5"></td>
-          <td class="random" id="box6"></td>
-          <td id="box7"></td>
-          <td id="box8"></td>
-          <td class="random" id="box9"></td>
-          <td id="box10"></td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td id="box4"></td>
-          <td colspan="4" class="tdCol" id="messageBoard"></td>
-          <td id="box11"></td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td class="random" id="box3"></td>
-          <td colspan="4" class="tdCol"></td>
-          <td class="random" id="box12"></td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td id="box2"></td>
-          <td colspan="4" class="tdCol" id="dice"></td>
-          <td id="box13"></td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td id="box1"></td>
-          <td colspan="2" class="tdCol" id="starButton"><button type="button" name="startGame">Start Game</button></td>
-          <td colspan="2" class="tdCol" id="resetButton"><button type="button" name="resetGame">Reset Game</button></td>
-          <td id="box14"></td>
-        </tr>
-        <tr>
-          <th>0</th>
-          <td id="box0"></td>
-          <td class="random" id="box19"></td>
-          <td id="box18"></td>
-          <td id="box17"></td>
-          <td class="random" id="box16"></td>
-          <td class="free" id="box15"></td>
-        </tr>
-      </table>
+    <div>
+      <div class="wrapper">
+        <table class="Center">
+          <tr>
+            <th>5</th>
+            <td class="board" id="box5"></td>
+            <td class="qMark" id="box6"></td>
+            <td class="board" id="box7"></td>
+            <td class="board" id="box8"></td>
+            <td class="qMark" id="box9"></td>
+            <td class="board" id="box10"></td>
+          </tr>
+          <tr>
+            <th>4</th>
+            <td class="board"id="box4"></td>
+            <td class="player" id="vaderOne"><img src="img/playerOne.png" alt="" width="50px" id="dogOne"/></td>
+            <td colspan="2" class="tdCol" id="messageBoard"></td>
+            <td class="player" id="clemenTwo"><img src="img/playerTwo.png" alt="" width="80px" id="dogTwo"/></td>
+            <td class="board" id="box11"></td>
+          </tr>
+          <tr>
+            <th>3</th>
+            <td class="qMark" id="box3"></td>
+            <td colspan="4" class="tdCol" id="diceMessage"></td>
+            <td class="qMark" id="box12"></td>
+          </tr>
+          <tr>
+            <th>2</th>
+            <td class="board" id="box2"></td>
+            <td colspan="4" class="redDice" id="dice"><img src="img/red_dice.png" alt="" id="red_dice"/></td>
+            <td class="board" id="box13"></td>
+          </tr>
+          <tr>
+            <th>1</th>
+            <td class="board" id="box1"></td>
+            <td colspan="2" class="tdCol" id="startButton"><button class="button-primary" type="button" name="startGame">Start Game</button></td>
+            <td colspan="2" class="tdCol" id="resetButton"><button class="button-primary" type="button" name="resetGame">Reset Game</button></td>
+            <td class="board" id="box14"></td>
+          </tr>
+          <tr>
+            <th>0</th>
+            <td class="board" id="box0"></td>
+            <td class="qMark" id="box19"></td>
+            <td class="board" id="box18"></td>
+            <td class="board" id="box17"></td>
+            <td class="qMark" id="box16"></td>
+            <td class="board" id="box15"></td>
+          </tr>
+        </table>
+        <div class="gamePieces">
+        </div>
+
+      </div>
     </div>
-      <div class="red_dice"><img src="img/red_dice.png" alt="" id="red_dice"/></div>
-
-
-
-
-
 
     <script src="js/jquery-2.2.0.min.js"></script>
     <script src="js/script.js" type="text/javascript">

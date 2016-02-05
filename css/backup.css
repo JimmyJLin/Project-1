@@ -1,0 +1,62 @@
+h1 {
+  text-align: center;
+}
+
+.random {
+  background-color: orange;
+}
+
+.free {
+  background-color: red;
+}
+
+#box0 {
+  background-color: #3F70FF;
+}
+
+#box10 {
+  background-color: grey;
+}
+
+
+table {
+  margin: 0 auto;
+  border-radius:10px;
+  position: absolute;
+}
+
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+td {
+  border: 1px solid grey;
+  width: 75px;
+  height: 75px;
+  text-align: center;
+  font-size: 1em;
+  box-sizing:border-box;
+}
+
+.tdCol {
+    border: 0px solid white;
+}
+
+#red_dice {
+  margin: auto;
+  width: 150px;
+  position: absolute;
+  left: 400px;
+  top: 400px;
+}
+
+
+
+.button {
+  background-color: white;
+  width: 60px;
+  margin: auto;
+}
