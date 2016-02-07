@@ -1,5 +1,4 @@
 $(document).ready(function(){
-  console.log("js loaded");
 
   // Global variables
   var $startGame = $('#startButton');
@@ -26,13 +25,6 @@ $(document).ready(function(){
     this.moveCount = moveCount;
     this.turn = turn;
     this.move = move;
-    this.currentPos =
-    function currentPos(){
-      // var pos = currentStep
-      for (var i = 0; i < boardPos[6]; i++){
-        console.log(boardPos[i])
-      }
-    }
 
   }
 
@@ -48,37 +40,35 @@ $(document).ready(function(){
     return $("#diceMessage").text(x) // pass dice rolled result to the diceboard
   }
 
+  //default game message @ startGame
+  $("#messageBoard").text("Press Start Game to begin")
+  $("#diceMessage").text("Each player click on red dice to roll, first player to reach the finish line wins!")
+
+
   // checkWinner function
   function checkWinner(){
     if (dogOne.curentStep > 19){
+      prompt("Congratulation!! " + dogOne.name + " WINS!!!")
       $dogOne.css({transform: 'translate(0px,-5px)'});
-      boardMsg("Congratulation!! " + dogOne.name + " WINS!!!")
     } else if (dogTwo.currentStep > 19){
+      prompt("Congratulation!! " + dogTwo.name + " WINS!!!")
       $dogTwo.css({transform: 'translate(0px,-5px)'});
-      boardMsg("Congratulation!! " + dogTwo.name + " WINS!!!")
     }
+    return;
   }
 
-    // css anditiona moving from position to position
+    // move Dog one to the next position (currentPos + rolled dice) - loop through the array and find that position -
     function DogOneMovingXandY(){
+      // checkWinner();
       for (var i = 0; i < dogOne.move; i++){
         var boardX = boardPos[i][0] + "px"
         var boardY = boardPos[i][1] + 'px';
         $dogOne.css({transform: 'translate(' + boardX + ',' + boardY + ')'});
       }
-      checkWinner();
-      return;
-    }
-    function DogTwoMovingXandY(){
-      for (var i = 0; i < dogTwo.move; i++){
-        var boardX = boardPos[i][0] + "px"
-        var boardY = boardPos[i][1] + 'px';
-        $dogTwo.css({transform: 'translate(' + boardX + ',' + boardY + ')'});
-      }
-      checkWinner();
       return;
     }
 
+    // for random event movemently - move Dog one to the next position (currentPos + rolled dice) - loop through the array and find that position -
     function DogOneRandomMovingXandY(){
       for (var i = 0; i < dogOne.move; i++){
         var boardX = boardPos[i][0] + "px"
@@ -87,10 +77,21 @@ $(document).ready(function(){
           $("#dogOne").css({transform: 'translate(' + boardX + ',' + boardY + ')'});
         }, 3000);
       }
-      checkWinner();
       return;
     }
 
+    // move Dog one to the next position (currentPos + rolled dice) - loop through the array and find that position -
+    function DogTwoMovingXandY(){
+      // checkWinner();
+      for (var i = 0; i < dogTwo.move; i++){
+        var boardX = boardPos[i][0] + "px"
+        var boardY = boardPos[i][1] + 'px';
+        $dogTwo.css({transform: 'translate(' + boardX + ',' + boardY + ')'});
+      }
+      return;
+    }
+
+    // for random event movemently - move Dog one to the next position (currentPos + rolled dice) - loop through the array and find that position -
     function DogTwoRandomMovingXandY(){
       for (var i = 0; i < dogTwo.move; i++){
         var boardX = boardPos[i][0] + "px"
@@ -99,11 +100,10 @@ $(document).ready(function(){
           $("#dogTwo").css({transform: 'translate(' + boardX + ',' + boardY + ')'});
         }, 3000);
       }
-      checkWinner();
       return;
     }
 
-      // gameRandomCheck
+      // gameRandomCheck - 6 random event tiles
       function gameRandomCheck(){
         if (dogOne.currentStep == 3 || dogOne.currentStep == 6 || dogOne.currentStep == 9 || dogOne.currentStep == 12 || dogOne.currentStep == 16 || dogOne.currentStep == 19){
           dogOneGameRandomEvent();
@@ -114,66 +114,57 @@ $(document).ready(function(){
         }
       }
 
-    // Game random move Event
+    // dog One random event generator - 1/4 move + 2; 1/4 move - 2; 1/4 move + 1; 1/4 move - 1;
     function dogOneGameRandomEvent(){
       var random = Math.random();
       if (random < 0.25){
-        console.log("Move + 2");
         dogOne.currentStep += 2;
         dogOne.move = dogOne.currentStep;
         DogOneRandomMovingXandY();
-        boardMsg(dogOne.name + " Move forward two spaces");
+        boardMsg(dogOne.name + " move forward two spaces");
       } else if (random < 0.50) {
-        console.log("Move - 2");
         dogOne.currentStep -=2;
         dogOne.move = dogOne.currentStep;
         DogOneRandomMovingXandY();
-        boardMsg(dogOne.name + " Move backward two spaces");
+        boardMsg(dogOne.name + " move backward two spaces");
       } else if (random < 0.75){
-        console.log("Move + 1");
         dogOne.currentStep += 1;
         dogOne.move = dogOne.currentStep;
         DogOneRandomMovingXandY();
-        boardMsg(dogOne.name + " Move forward one spaces");
+        boardMsg(dogOne.name + " move forward one spaces");
       } else if (random < 1) {
-        console.log("Move - 1");
         dogOne.currentStep -= 1;
         dogOne.move = dogOne.currentStep;
         DogOneRandomMovingXandY();
-        boardMsg(dogOne.name + " Move backward one spaces");
+        boardMsg(dogOne.name + " move backward one spaces");
       }
-      checkWinner();
       return;
     }
 
+    // dog two random event generator - 1/4 move + 2; 1/4 move - 2; 1/4 move + 1; 1/4 move - 1;
     function dogTwoGameRandomEvent(){
       var random = Math.random();
       if (random < 0.25){
-        console.log("Move + 2");
         dogTwo.currentStep += 2;
         dogTwo.move = dogTwo.currentStep;
         DogTwoRandomMovingXandY();
-        boardMsg(dogTwo.name + " Move forward two spaces");
+        boardMsg(dogTwo.name + " move forward two spaces");
       } else if (random < 0.50) {
-        console.log("Move - 2");
         dogTwo.currentStep -=2;
         dogTwo.move = dogTwo.currentStep;
         DogTwoRandomMovingXandY();
-        boardMsg(dogTwo.name + " Move backward two spaces");
+        boardMsg(dogTwo.name + " move backward two spaces");
       } else if (random < 0.75){
-        console.log("Move + 1");
         dogTwo.currentStep += 1;
         dogTwo.move = dogTwo.currentStep;
         DogTwoRandomMovingXandY();
-        boardMsg(dogTwo.name + " Move forward one spaces");
+        boardMsg(dogTwo.name + " move forward one spaces");
       } else if (random < 1) {
-        console.log("Move - 1");
         dogTwo.currentStep -= 1;
         dogTwo.move = dogTwo.currentStep;
         DogTwoRandomMovingXandY();
-        boardMsg(dogTwo.name + " Move backward one spaces");
+        boardMsg(dogTwo.name + " move backward one spaces");
       }
-      checkWinner();
       return;
     }
 
@@ -197,21 +188,16 @@ $(document).ready(function(){
         }
       return;
     }
-    // random dice Roll to move between 1-6
-    // function diceRoll(){
-    //   var randomDice = Math.floor((Math.random() * 6) + 1);
-    //   return randomDice;
-    // }
 
     // swtich player function
     function switchPlayer(){
-      // debugger;
+      // random dice Roll to move between 1-6
       function diceRoll(){
         var randomDice = Math.floor((Math.random() * 6) + 1);
         return randomDice;
       }
+
       if (currentTurn == true){
-        console.log("DogOne Turn")
         var diceRoll = diceRoll();
         diceMsg(dogOne.name + " Rolled " + diceRoll);
         dogOne.currentStep += diceRoll;
@@ -219,46 +205,49 @@ $(document).ready(function(){
         dogOne.moveCount++;
         DogOneMovingXandY()
         currentTurn = false;
-        boardMsg("")
         gameRandomCheck()
         goToCrate()
+        setTimeout(function(){
+          boardMsg("");
+          diceMsg(dogTwo.name + "'s turn!!");
+        }, 5000);
         checkWinner()
         return;
       } else if (currentTurn == false) {
-        console.log("DogTwo Turn")
-        var diceRoll = diceRoll();
-        diceMsg(dogTwo.name + " Rolled " + diceRoll);
-        dogTwo.currentStep += diceRoll;
-        dogTwo.move = dogTwo.currentStep.toString();
-        dogTwo.moveCount++;
-        DogTwoMovingXandY();
-        currentTurn = true;
-        boardMsg("")
-        gameRandomCheck()
-        goToCrate()
-        checkWinner()
-        return;
+          var diceRoll = diceRoll();
+          diceMsg(dogTwo.name + " Rolled " + diceRoll);
+          dogTwo.currentStep += diceRoll;
+          dogTwo.move = dogTwo.currentStep.toString();
+          dogTwo.moveCount++;
+          DogTwoMovingXandY();
+          currentTurn = true;
+          gameRandomCheck()
+          goToCrate()
+          setTimeout(function(){
+            boardMsg("");
+            diceMsg(dogOne.name + "'s turn!!");
+          }, 5000);
+          checkWinner()
+          return;
       }
     }
 
 
   // Roll dice to play the game
   $redDice.on("click", function(event){
-    // debugger;
-    console.log("dice clicked");
     switchPlayer();
   })
 
 
   // Start game
   $startGame.on("click", function(event){
-    console.log("game started");
+    boardMsg("");
+    diceMsg(dogOne.name + "'s turn!!");
     $box0.append($dogTwo);
     $box0.append($dogOne);
   })
 
   $resetGame.on("click", function(event){
-    console.log("reset button clicked");
     $("#vaderOne").append($dogOne);
     $("#clemenTwo").append($dogTwo);
     this.turn = true;
@@ -269,6 +258,8 @@ $(document).ready(function(){
     boardMsg("");
     diceMsg("");
   })
+
+
 
 
 });

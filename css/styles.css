@@ -132,15 +132,15 @@ td {
 
 
 #messageBoard {
-  font-family: "Viva Std", Times, Serif;
-  font-size: 36px;
+  font-family: Monosten, monospace;
+  font-size: 30px;
   color: black;
   font-style: normal;
 }
 
 #diceMessage {
-  font-family: "Viva Std", Times, Serif;
-  font-size: 40px;
+  font-family: Monosten, monospace;
+  font-size: 30px;
   color: black;
   font-style: normal;
 }
