@@ -241,7 +241,6 @@ $(document).ready(function(){
       }
     }
 
-
   // Roll dice to play the game
   $redDice.on("click", function(event){
     // debugger;
