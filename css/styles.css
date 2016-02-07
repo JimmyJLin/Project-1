@@ -81,6 +81,14 @@ td {
   background-size: contain;
 }
 
+.object {
+  /*animation-delay: 5s;
+  -webkit-animation-delay: 5s;*/
+  transition: all 3s ease-in-out;
+  -webkit-transition: all 3s ease-in-out;
+  -moz-transition: all 3s ease-in-out;
+  -0-transition: all 3s ease-in-out;
+}
 
 .tdCol {
   border: 0px solid white;
@@ -106,6 +114,7 @@ td {
   background-repeat: no-repeat;
   background-position: left bottom;
 }
+
 
 .dogTwo {
   background-image: url("../img/playerTwo.png");
